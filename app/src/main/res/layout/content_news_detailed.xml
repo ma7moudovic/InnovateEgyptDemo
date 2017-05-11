@@ -79,7 +79,6 @@
                         android:layout_alignParentStart="true"
                         android:background="@android:color/white" />
 
-
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -97,6 +96,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
+                           android:textColor="@android:color/white"
                             android:layout_toEndOf="@+id/detailed_news_likes_icon"
                             android:text="@string/likes" />
 
@@ -118,20 +118,19 @@
                     app:layout_widthPercent="35%">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:id="@+id/views_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="8dp"
-                        android:id="@+id/views_icon"
-                        android:layout_toStartOf="@+id/detailed_news_views"
                         android:src="@drawable/views_icon" />
 
                     <TextView
                         android:id="@+id/detailed_news_views"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/views_icon"
                         android:layout_margin="8dp"
+                        android:layout_toEndOf="@+id/views_icon"
                         android:text="views"
                         android:textColor="@android:color/white" />
                 </RelativeLayout>
@@ -150,7 +149,6 @@
                     android:id="@+id/detailed_news_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/info_box"
                     android:padding="16dp"
                     android:textColor="@android:color/black" />
             </ScrollView>

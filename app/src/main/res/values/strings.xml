@@ -12,4 +12,5 @@
 
     <string name="action_filter">filter</string>
     <string name="get_news_details_fail">Get news details fail</string>
+    <string name="action_share">Share</string>
 </resources>
