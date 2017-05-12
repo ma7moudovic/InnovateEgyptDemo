@@ -18,7 +18,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.shar2wy.andtask.R;
+import com.shar2wy.andtask.mainView.adapters.NavigationItemsAdapter;
 import com.shar2wy.andtask.mainView.adapters.NewsAdapter;
+import com.shar2wy.andtask.models.NavItem;
 import com.shar2wy.andtask.models.News;
 import com.shar2wy.andtask.newsDetailedView.NewsDetailedActivity;
 
@@ -26,7 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, NewsAdapter.OnNewsClickListener, MainPresenter.NewsPresenterListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        NewsAdapter.OnNewsClickListener,
+        MainPresenter.NewsPresenterListener,
+        NavigationItemsAdapter.OnNavItemClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     MainPresenter mainPresenter;
@@ -45,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setTitle(getString(R.string.title_activity_news));
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -53,7 +58,29 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        RecyclerView recyclerView = (RecyclerView) navigationView.getHeaderView(0); // 0-index header
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        ArrayList<NavItem> navItems = new ArrayList<>();
+
+        NavigationItemsAdapter navigationItemsAdapter = new NavigationItemsAdapter(this, navItems);
+        navigationItemsAdapter.setmOnNavItemClickListener(this);
+        RecyclerView.LayoutManager layoutManagerNav = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(layoutManagerNav);
+        recyclerView.setAdapter(navigationItemsAdapter);
         navigationView.setNavigationItemSelectedListener(this);
+
+        navItems.add(new NavItem("News", R.drawable.news_icon));
+        navItems.add(new NavItem("Innovation Map", R.drawable.map_icon));
+        navItems.add(new NavItem("Events Calendar", R.drawable.events_icon));
+        navItems.add(new NavItem("Leadership Thoughts", R.drawable.leadership_icon));
+        navItems.add(new NavItem("Language", R.drawable.language));
+
+        navigationItemsAdapter.notifyDataSetChanged();
+//        navigationView.setNavigationItemSelectedListener(this);
 
 
         mainPresenter = new MainPresenter(this, this);
@@ -153,5 +180,11 @@ public class MainActivity extends AppCompatActivity
 
     private void showRetryLayout() {
 
+    }
+
+    @Override
+    public void OnNavItemClick(NavItem navItem) {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
     }
 }

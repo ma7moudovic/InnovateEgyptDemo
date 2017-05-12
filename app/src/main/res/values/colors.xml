@@ -6,5 +6,6 @@
 
     <color name="colorPrimary">@android:color/holo_red_light</color>
     <color name="colorPrimaryDark">@android:color/holo_red_dark</color>
+    <color name="translucent_black">#4D000000</color>
 
 </resources>
