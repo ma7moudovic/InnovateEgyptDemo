@@ -14,4 +14,12 @@
     <string name="get_news_details_fail">Get news details fail</string>
     <string name="action_share">Share</string>
     <string name="retry_msg">Tab to retry</string>
+
+    <string-array name="nav_items_titles">
+        <item>News</item>
+        <item>Innovation Map</item>
+        <item>Events Calendar</item>
+        <item>Leadership Thoughts</item>
+        <item>Language</item>
+    </string-array>
 </resources>

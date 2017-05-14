@@ -34,7 +34,6 @@ public class NewsDetailedActivity extends AppCompatActivity implements DetailedV
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         if (getIntent() != null && getIntent().getExtras() != null) {
             mNewsModel = (News) getIntent().getExtras().getSerializable(DETAILED_NEWS);
         }

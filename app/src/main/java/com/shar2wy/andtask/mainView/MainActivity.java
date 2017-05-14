@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
+        implements
         NewsAdapter.OnNewsClickListener,
         MainPresenter.NewsPresenterListener,
         NavigationItemsAdapter.OnNavItemClickListener {
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initNavViewItems() {
+
         navItems.add(new NavItem("News", R.drawable.news_icon));
         navItems.add(new NavItem("Innovation Map", R.drawable.map_icon));
         navItems.add(new NavItem("Events Calendar", R.drawable.events_icon));
@@ -98,7 +99,6 @@ public class MainActivity extends AppCompatActivity
 
         navViewItemsRecyclerView.setLayoutManager(layoutManagerNav);
         navViewItemsRecyclerView.setAdapter(mNavigationItemsAdapter);
-        navigationView.setNavigationItemSelectedListener(this);
 
         initNavViewItems();
 
@@ -172,28 +172,6 @@ public class MainActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        }
-
-        if (drawer != null) {
-            drawer.closeDrawer(GravityCompat.START);
-        }
-        return true;
     }
 
     @Override

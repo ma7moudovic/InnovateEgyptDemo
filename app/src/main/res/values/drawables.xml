@@ -5,4 +5,13 @@
     <item name="ic_menu_manage" type="drawable">@android:drawable/ic_menu_manage</item>
     <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
     <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
+
+    <integer-array name="nav_items_icons">
+        <item>@drawable/news_icon</item>
+        <item>@drawable/map_icon</item>
+        <item>@drawable/events_icon</item>
+        <item>@drawable/leadership_icon</item>
+        <item>@drawable/language</item>
+    </integer-array>
+
 </resources>
