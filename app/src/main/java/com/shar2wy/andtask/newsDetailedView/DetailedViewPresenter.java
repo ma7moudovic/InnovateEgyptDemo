@@ -18,7 +18,7 @@ import retrofit2.Response;
 
 public class DetailedViewPresenter {
 
-    private final Context context;
+    private final Context mContext;
     private final NewsDetailsPresenterListener mListener;
 
     public interface NewsDetailsPresenterListener {
@@ -27,9 +27,9 @@ public class DetailedViewPresenter {
         void onGetNewsDetailsFail(String error);
     }
 
-    public DetailedViewPresenter(NewsDetailsPresenterListener listener, Context context) {
+    public DetailedViewPresenter(NewsDetailsPresenterListener listener, Context mContext) {
         this.mListener = listener;
-        this.context = context;
+        this.mContext = mContext;
     }
 
     public void getNewsDetails(String nid) {

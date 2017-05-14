@@ -8,5 +8,6 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="design_navigation_icon_size" tools:override="true">40dp</dimen>
+    <dimen name="font_size_large">16sp</dimen>
 
 </resources>

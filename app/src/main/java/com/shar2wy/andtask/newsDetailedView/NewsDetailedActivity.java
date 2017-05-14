@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.shar2wy.andtask.R;
 import com.shar2wy.andtask.models.News;
 
-public class NewsDetailedActivity extends AppCompatActivity implements DetailedViewPresenter.NewsDetailsPresenterListener{
+public class NewsDetailedActivity extends AppCompatActivity implements DetailedViewPresenter.NewsDetailsPresenterListener {
 
     public static String DETAILED_NEWS = "detailed_news";
 
@@ -26,7 +26,6 @@ public class NewsDetailedActivity extends AppCompatActivity implements DetailedV
     TextView detailedNewsDesc;
     ImageView detailedNewsImage;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +35,16 @@ public class NewsDetailedActivity extends AppCompatActivity implements DetailedV
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        if(getIntent()!=null&&getIntent().getExtras()!=null){
+        if (getIntent() != null && getIntent().getExtras() != null) {
             mNewsModel = (News) getIntent().getExtras().getSerializable(DETAILED_NEWS);
         }
 
-        mDetailedViewPresenter = new DetailedViewPresenter(this,this);
+        mDetailedViewPresenter = new DetailedViewPresenter(this, this);
         mDetailedViewPresenter.getNewsDetails(mNewsModel.getNid());
 
         initView();
-        if(mNewsModel!=null){
+
+        if (mNewsModel != null) {
             updateView(mNewsModel);
             updateNewsImage(mNewsModel.getImageUrl());
         }
@@ -53,17 +53,17 @@ public class NewsDetailedActivity extends AppCompatActivity implements DetailedV
     private void updateView(News news) {
 
         detailedNewsTitle.setText(news.getNewsTitle());
-        detailedNewsLikes.setText(getString(R.string.likes,news.getLikes()));
-        detailedNewsViews.setText(getString(R.string.views,news.getNumOfViews()));
+        detailedNewsLikes.setText(getString(R.string.likes, news.getLikes()));
+        detailedNewsViews.setText(getString(R.string.views, news.getNumOfViews()));
 
-        if(news.getDescription()!=null){
+        if (news.getDescription() != null) {
             detailedNewsDesc.setText(news.getDescription());
         }
     }
 
     private void updateNewsImage(String url) {
 
-        if(url!=null||url!=""){
+        if (url != null || url != "") {
             Glide
                     .with(this)
                     .load(url)
@@ -73,6 +73,7 @@ public class NewsDetailedActivity extends AppCompatActivity implements DetailedV
         }
 
     }
+
     private void initView() {
 
         detailedNewsTitle = (TextView) findViewById(R.id.detailed_news_title);
@@ -90,7 +91,7 @@ public class NewsDetailedActivity extends AppCompatActivity implements DetailedV
 
     @Override
     public void onGetNewsDetailsFail(String error) {
-        Toast.makeText(this,getString(R.string.get_news_details_fail)+", "+error, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.get_news_details_fail) + ", " + error, Toast.LENGTH_SHORT).show();
     }
 
 

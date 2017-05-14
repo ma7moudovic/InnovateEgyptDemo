@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_margin="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.shar2wy.andtask.newsDetailedView.NewsDetailedActivity"
+    tools:mContext="com.shar2wy.andtask.newsDetailedView.NewsDetailedActivity"
     tools:showIn="@layout/activity_news_detailed">
 
     <android.support.v7.widget.CardView

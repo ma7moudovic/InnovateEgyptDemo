@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.shar2wy.andtask.mainView.MainActivity"
+    tools:mContext="com.shar2wy.andtask.mainView.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <ProgressBar
@@ -16,6 +16,31 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/retry_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_refresh"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/retry_image"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/retry_image"
+            android:text="@string/retry_msg"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@android:color/white"
+            />
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

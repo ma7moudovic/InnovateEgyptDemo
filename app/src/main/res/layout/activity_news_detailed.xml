@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_detailed_news"
     android:fitsSystemWindows="true"
-    tools:context="com.shar2wy.andtask.newsDetailedView.NewsDetailedActivity">
+    tools:mContext="com.shar2wy.andtask.newsDetailedView.NewsDetailedActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

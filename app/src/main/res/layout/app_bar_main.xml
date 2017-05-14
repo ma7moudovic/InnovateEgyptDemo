@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_home"
     android:fitsSystemWindows="true"
-    tools:context="com.shar2wy.andtask.mainView.MainActivity">
+    tools:mContext="com.shar2wy.andtask.mainView.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
